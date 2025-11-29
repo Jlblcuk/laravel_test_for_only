@@ -17,7 +17,8 @@ class ComfortCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->randomElement(['Эконом', 'Комфорт', 'Премиум']),
+            'level' => $this->faker->numberBetween(1, 3),
         ];
     }
 }

@@ -2,6 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Car;
+use App\Models\ComfortCategory;
+use App\Models\Driver;
+use App\Models\Position;
+use App\Models\Trip;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,11 +20,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $positions = Position::factory(5)->create();
+        $categories = ComfortCategory::factory(5)->create();
+        $drivers = Driver::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        foreach ($positions as $position) {
+            $position->comfortCategories()->attach(
+                $categories->random(rand(1, 2))->pluck('id')
+            );
+        }
+
+        $cars = Car::factory(10)->create([
+            'driver_id' => fn() => $drivers->random()->id,
+        ]);
+
+        $users = User::factory(20)->create([
+            'position_id' => fn() => $positions->random()->id,
+        ]);
+
+        Trip::factory(30)->create([
+            'user_id' => fn() => $users->random()->id,
+            'car_id' => fn() => $cars->random()->id,
         ]);
     }
 }
