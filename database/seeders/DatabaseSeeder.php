@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $positions = Position::factory(5)->create();
-        //$categories = ComfortCategory::factory(3)->create();
         $categories = collect([
             ComfortCategory::create(['name' => 'Эконом', 'level' => 1]),
             ComfortCategory::create(['name' => 'Комфорт', 'level' => 2]),
