@@ -18,7 +18,7 @@ class TripFactory extends Factory
     {
         return [
             'start_time' => $this->faker->dateTimeBetween('now', '+7 days'),
-            'stop_time' => $this->faker->dateTimeBetween('+1 hour', '+8 days'),
+            'end_time' => $this->faker->dateTimeBetween('+1 hour', '+8 days'),
             'status' => $this->faker->randomElement(['active', 'cancelled']),
         ];
     }

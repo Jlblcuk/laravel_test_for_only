@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('car_id')->constrained()->onDelete('cascade');
             $table->timestamp('start_time');
-            $table->timestamp('stop_time');
+            $table->timestamp('end_time');
             $table->enum('status', ['active', 'cancelled'])->default('active');
             $table->timestamps();
         });
