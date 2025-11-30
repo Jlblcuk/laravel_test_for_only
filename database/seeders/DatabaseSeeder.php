@@ -21,8 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $positions = Position::factory(5)->create();
-        $categories = ComfortCategory::factory(5)->create();
-        $drivers = Driver::factory(10)->create();
+        //$categories = ComfortCategory::factory(3)->create();
+        $categories = collect([
+            ComfortCategory::create(['name' => 'Эконом', 'level' => 1]),
+            ComfortCategory::create(['name' => 'Комфорт', 'level' => 2]),
+            ComfortCategory::create(['name' => 'Бизнес', 'level' => 3]),
+        ]);
+        $drivers = Driver::factory(20)->create();
 
         foreach ($positions as $position) {
             $position->comfortCategories()->attach(
@@ -30,11 +35,12 @@ class DatabaseSeeder extends Seeder
             );
         }
 
-        $cars = Car::factory(10)->create([
+        $cars = Car::factory(20)->create([
             'driver_id' => fn() => $drivers->random()->id,
+            'comfort_category_id' => fn () => $categories->random()->id,
         ]);
 
-        $users = User::factory(20)->create([
+        $users = User::factory(10)->create([
             'position_id' => fn() => $positions->random()->id,
         ]);
 

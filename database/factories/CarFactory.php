@@ -20,7 +20,7 @@ class CarFactory extends Factory
         return [
             'model' => $this->faker->randomElement(['Toyota', 'Subaru', 'BMW', 'Kia', 'Mersedes']),
             'number_plate' => $this->faker->unique()->regexify('[A-Z]{1}[0-9]{3}[A-Z]{2}'),
-            'comfort_category_id' => ComfortCategory::factory(),
+            //'comfort_category_id' => ComfortCategory::factory(),
         ];
     }
 }
