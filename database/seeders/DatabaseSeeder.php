@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
     {
         $positions = Position::factory(5)->create();
         $categories = collect([
-            ComfortCategory::create(['name' => 'Эконом', 'level' => 1]),
-            ComfortCategory::create(['name' => 'Комфорт', 'level' => 2]),
-            ComfortCategory::create(['name' => 'Бизнес', 'level' => 3]),
+            ComfortCategory::create(['name' => 'Economy', 'level' => 1]),
+            ComfortCategory::create(['name' => 'Comfort', 'level' => 2]),
+            ComfortCategory::create(['name' => 'Business', 'level' => 3]),
         ]);
         $drivers = Driver::factory(20)->create();
 

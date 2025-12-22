@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trip extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'car_id',
+        'start_time',
+        'end_time',
+        'status',
+    ];
+
     public function car()
     {
         return $this->belongsTo(Car::class);

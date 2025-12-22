@@ -39,7 +39,7 @@ class TripController extends Controller
         $allowedCategoryIds = $user->position->comfortCategories->pluck('id');
 
         if (!$allowedCategoryIds->contains($car->comfort_category_id)) {
-            return response()->json(['error' => 'Этот авто недоступен для вашей должности']);
+            return response()->json(['error' => 'This car is not available for your position']);
         }
 
         return DB::transaction(function () use ($user, $carId, $startTime, $endTime) {
@@ -50,7 +50,7 @@ class TripController extends Controller
                 ->exists();
 
             if ($conflict) {
-                return response()->json(['error' => 'Автомобиль уже забронирован на это время']);
+                return response()->json(['error' => 'The car is already booked for this time']);
             }
 
             $trip = Trip::create([

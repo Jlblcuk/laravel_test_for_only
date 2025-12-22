@@ -35,7 +35,7 @@ class CarController extends Controller
         if ($allowedCategoryIds->isEmpty()) {
             return response()->json([
                 'cars' => [],
-                'message' => 'Нет доступных авто'
+                'message' => 'No free auto'
             ]);
         }
 
@@ -56,7 +56,7 @@ class CarController extends Controller
             if (!$allowedCategoryIds->contains($request->comfort_category_id)) {
                 return response()->json([
                     'cars' => [],
-                    'message' => 'Нет доступных авто'
+                    'message' => 'No free auto'
                 ]);
             }
             $query->where('comfort_category_id', $request->comfort_category_id);
