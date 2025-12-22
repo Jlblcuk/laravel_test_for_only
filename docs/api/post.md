@@ -9,7 +9,7 @@ start_time — начало поездки
 end_time — окончание поездки  
 
 **json-коллекция GET и POST запросов**  
-[api/Car_booking_API.postman_collection.json](api/Car_booking_API.postman_collection.json)
+[Car_booking_API.postman_collection.json](Car_booking_API.postman_collection.json)
 
 **json-коллекция POST-запросов:**
 ```json

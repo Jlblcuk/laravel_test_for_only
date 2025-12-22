@@ -18,7 +18,7 @@ http://localhost/api/available-cars?start_time=2025-12-10T10:00:00&end_time=2025
 фильтрация по категории
 
 **json-коллекция GET и POST запросов**  
-[docs/Car_booking_API.postman_collection.json](docs/Car_booking_API.postman_collection.json)
+[Car_booking_API.postman_collection.json](Car_booking_API.postman_collection.json)
 
 **json-коллекция GET-запросов:**
 ```json
